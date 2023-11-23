@@ -3,7 +3,7 @@ package internal
 import (
 	"flag"
 	"fmt"
-	"ginserver/adaters/inmem"
+	"ginserver/adapters/inmem"
 	"ginserver/handler"
 	"ginserver/pkg/service"
 	"ginserver/server"

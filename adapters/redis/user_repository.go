@@ -46,7 +46,6 @@ func (ur *userRepository) GetAll(context.Context) ([]pkg.User, error) {
 		return userSlice, err
 	}
 
-	// Imprimir los campos y valores del hash
 	fmt.Println("Contenido del hash:")
 	for i := 0; i < len(result); i += 2 {
 		user := pkg.User{}

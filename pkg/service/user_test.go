@@ -3,7 +3,7 @@ package service
 import (
 	"context"
 	"fmt"
-	"ginserver/adaters/redis"
+	"ginserver/adapters/redis"
 	"ginserver/pkg"
 	"testing"
 
@@ -44,14 +44,12 @@ func TestUser_CreateUser(t *testing.T) {
 
 func prepareContainer(ctx context.Context) (string, error) {
 
-	// Configuración del contenedor de Redis
 	req := testcontainers.ContainerRequest{
 		Image:        "redis:latest",
 		ExposedPorts: []string{"6379/tcp"},
 		WaitingFor:   wait.ForLog("Ready to accept connections"),
 	}
 
-	// Crear el contenedor
 	redisC, err := testcontainers.GenericContainer(ctx, testcontainers.GenericContainerRequest{
 		ContainerRequest: req,
 		Started:          true,
@@ -60,7 +58,6 @@ func prepareContainer(ctx context.Context) (string, error) {
 		return "", err
 	}
 
-	// Obtener la IP y el puerto del contenedor
 	ip, err := redisC.Host(ctx)
 	if err != nil {
 		return "", err
@@ -70,7 +67,6 @@ func prepareContainer(ctx context.Context) (string, error) {
 		return "", err
 	}
 
-	// Formar la URL de Redis
 	redisURL := fmt.Sprintf("%s:%s", ip, port.Port())
 
 	return redisURL, nil

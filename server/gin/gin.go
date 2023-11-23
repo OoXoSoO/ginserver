@@ -15,7 +15,6 @@ type GinRouter struct {
 // ensure server.Route implementation
 var _ server.Router = (*GinRouter)(nil)
 
-// NewGinRouter crea una nueva instancia de GinRouter.
 func NewGinRouter(middlewares ...server.Middleware) *GinRouter {
 	engine := gin.Default()
 
@@ -25,7 +24,6 @@ func NewGinRouter(middlewares ...server.Middleware) *GinRouter {
 	}
 }
 
-// AddRoute implementa el método AddRoute de la interfaz Router.
 func (r *GinRouter) AddRoute(method, path string, handlerFunc http.HandlerFunc, middlewares ...server.Middleware) {
 
 	// Apply the general middlewares first
@@ -43,13 +41,11 @@ func (r *GinRouter) AddRoute(method, path string, handlerFunc http.HandlerFunc, 
 		r.engine.PUT(path, gin.WrapH(handlerFunc))
 	case "DELETE":
 		r.engine.DELETE(path, gin.WrapH(handlerFunc))
-	// Agrega otros métodos HTTP según sea necesario.
 	default:
 		panic("invalid http method")
 	}
 }
 
-// Start implementa el método Start de la interfaz Router.
 func (r *GinRouter) Start(port string) {
 	err := r.engine.Run(":" + port)
 	if err != nil {
