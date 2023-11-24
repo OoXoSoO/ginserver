@@ -1,18 +1,22 @@
-name: Go test
+name: Pull requests run Testsests 
 
 on:
-  push:
+  pull_request:
     branches:
-    - master 
+      - master
 
 jobs:
-  gotest:
+  test:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-go@v4
-        with:
-          go-version: '1.20' # The Go version to download (if necessary) and use.
-      - run: go test ./...
 
-  
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Set up Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: 1.20
+
+    - name: Run Tests
+      run: go test ./...
