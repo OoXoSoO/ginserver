@@ -1,6 +1,6 @@
 [![Go test](https://github.com/OoXoSoO/ginserver/actions/workflows/pipeline.yml/badge.svg)](https://github.com/OoXoSoO/ginserver/actions/workflows/pipeline.yml)
 
-# Nombre del Proyecto
+# GINSERVER
 
 Servidor que permite ejecutar una aplicación utilizando diferentes frameworks para la capa de presentación. Esta está desacoplada completamente del resto del software.
 Por otro lado se ha utilizado este repositorio para aprender a utilizar githubactions y [`testcontainers`](https://golang.testcontainers.org/)
