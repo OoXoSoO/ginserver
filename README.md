@@ -12,6 +12,9 @@ Este proyecto implementa la arquitectura limpia en la capa de presentación con 
 1. Implementación utilizando la runtime de Go.
 2. Implementación utilizando el framework Gogin.
 
+Se crea el paquete Server donde se define la interfaz Router.
+Esta inrerfaz nos proporciona las llamadas necesarias para preparar el servidor y arrancarlo.
+
 ### Implementación con la runtime de Go
 
 TODO
@@ -21,10 +24,6 @@ TODO
 TODO
 
 ## GitHub Actions para Pruebas Automáticas
-
-Este proyecto utiliza GitHub Actions para automatizar las pruebas del código. Se han configurado acciones que se ejecutan automáticamente cuando se realiza un push o pull request en el repositorio. Esto garantiza que las pruebas se ejecuten de manera consistente y ayuda a mantener la integridad del código.
-
-### Configuración de GitHub Actions
 
 Este proyecto utiliza GitHub Actions para ejecutar automáticamente pruebas en cada pull request dirigido a la rama `master`. La configuración se encuentra en el archivo [`.github/workflows/pipeline.yml`](.github/workflows/pipeline.yml).
 
@@ -43,7 +42,3 @@ Si deseas contribuir a este proyecto, sigue los pasos a continuación:
 3. Realiza tus cambios y haz commit (`git commit -am 'Agrega nueva funcionalidad'`)
 4. Sube los cambios a tu fork (`git push origin feature/nueva-funcionalidad`)
 5. Abre un pull request
-
-## Licencia
-
-Este proyecto está bajo la licencia [Nombre de la Licencia]. Consulta el archivo LICENSE.md para obtener más detalles.
